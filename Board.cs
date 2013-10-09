@@ -10,16 +10,17 @@ namespace LifeSimulator
     {
         static Board()
         {
-            
+            Height = Properties.Settings.Default.BoardHeight;
+            Width = Properties.Settings.Default.BoardWidth;
         }
 
         public static int Height { get; set; }
         public static int Width { get; set; }
 
-        public enum CellStates { unpopulated, populated }
+ 
         public enum BoardStates { running, stopped }
         
-        
+        static Cell[,] theBoard = new Cell[Width,Height];
 
 
     }
