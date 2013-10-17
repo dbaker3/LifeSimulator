@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LifeSimulator
 {
-    class Board
+    static class Board
     {
         
 
-        public Board()
+        static Board()
         {
             Height = Properties.Settings.Default.BoardHeight;
             Width = Properties.Settings.Default.BoardWidth;
@@ -20,21 +20,21 @@ namespace LifeSimulator
             for (int i = 0; i < Width - 1; i++)
             {
                 for (int j = 0; j < Height - 1; j++)
-                    Cells[i, j] = new Cell(Cell.CellStates.unpopulated);
+                    Cells[i, j] = new Cell(i, j, Cell.CellStates.unpopulated);
             }
 
             Size = Cells.GetLength(1) * Cells.GetLength(0);
 
         }
 
-        public int Height { get; set; }
-        public int Width { get; set; }
+        static public int Height { get; set; }
+        static public int Width { get; set; }
 
-        public Cell[,] Cells;
+        static public Cell[,] Cells;
  
         public enum BoardStates { running, stopped }
 
-        public int Size { get; private set; }
+        static public int Size { get; private set; }
 
 
 

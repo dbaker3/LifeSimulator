@@ -12,8 +12,6 @@ namespace LifeSimulator
 {
     public partial class Form1 : Form
     {
-        Board TheBoard = new Board();
-
         public Form1()
         {
             InitializeComponent();
@@ -23,8 +21,18 @@ namespace LifeSimulator
 
         private void toolStripButtonPlay_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(TheBoard.Cells[0,0].MyState.ToString());
-            MessageBox.Show(TheBoard.Size.ToString());
+            // Testing
+            MessageBox.Show(Board.Cells[0,0].MyState.ToString());
+            MessageBox.Show(Board.Size.ToString());
+            Board.Cells[0, 0].MyState = Cell.CellStates.populated;
+            MessageBox.Show(Board.Cells[0,0].MyState.ToString());
+        }
+
+        private void toolStripButton5_Click(object sender, EventArgs e)
+        {
+            // Testing
+            Board.Cells[0, 1].MyState = Cell.CellStates.populated;
+            MessageBox.Show("Cell[0,1]: " + Board.Cells[0,1].MyState.ToString());
         }
 
     
