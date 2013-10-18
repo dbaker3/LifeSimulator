@@ -25,6 +25,7 @@ namespace LifeSimulator
 
             Size = Cells.GetLength(1) * Cells.GetLength(0);
 
+            Board.Status = BoardStates.stopped;
         }
 
         static public int Height { get; set; }
@@ -34,9 +35,21 @@ namespace LifeSimulator
  
         public enum BoardStates { running, stopped }
 
+        static public BoardStates Status { get; private set; }
+
         static public int Size { get; private set; }
 
+        static public void Start()
+        {
+            Board.Status = BoardStates.running;
+            // TODO: loop through cells and apply rules
+        }
 
+        static public void Stop()
+        {
+            Board.Status = BoardStates.stopped;
+            // TODO: stop looping through cells
+        }
 
     }
 }
